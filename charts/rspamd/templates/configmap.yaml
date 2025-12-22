@@ -6,9 +6,9 @@ metadata:
 data:
 {{- if .Values.valkey.enabled }}
   redis.conf: |
-    servers = "{{ .Release.Name }}";
+    servers = "{{ .Release.Name }}-valkey:6379";
   history_redis.conf: |
-    servers = {{ .Release.Name }}:6379;
+    servers = {{ .Release.Name }}-valkey:6379;
     key_prefix = "rs_history";
     nrows = 200;
     compress = true;
