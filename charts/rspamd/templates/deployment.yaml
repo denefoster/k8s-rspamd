@@ -85,9 +85,11 @@ spec:
             - name: config
               mountPath: /etc/rspamd/local.d/dkim_signing.conf
               subPath: dkim_signing.conf
+          {{- if .Values.arc.enabled }}
             - name: config
               mountPath: /etc/rspamd/local.d/arc.conf
-              subPath: dkim_signing.conf
+              subPath: arc.conf
+          {{- end }}
             - name: config
               mountPath: /etc/rspamd/local.d/milter_headers.conf
               subPath: milter_headers.conf

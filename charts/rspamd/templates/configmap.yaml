@@ -43,6 +43,34 @@ data:
         {{- end }}
     }
     {{- end }}
+{{- if .Values.arc.enabled }}
+  arc.conf: |
+    selector = {{ .Values.arc.selector }}
+    path = "/var/lib/rspamd/arc/$domain.$selector.key";
+
+    use_domain = {{ .Values.arc.use_domain }}
+    use_esld = {{ .Values.arc.use_esld }}
+    sign_local = {{ .Values.arc.sign_local }}
+    sign_inbound = {{ .Values.arc.sign_inbound }}
+    sign_authenticated = {{ .Values.arc.sign_authenticated }}
+    allow_envfrom_empty = {{ .Values.arc.allow_envfrom_empty }}
+    allow_hdrfrom_mismatch = {{ .Values.arc.allow_hdrfrom_mismatch }}
+    allow_hdrfrom_mismatch_local = {{ .Values.arc.allow_hdrfrom_mismatch_local }}
+    allow_hdrfrom_mismatch_sign_networks = {{ .Values.arc.allow_hdrfrom_mismatch_sign_networks }}
+    allow_hdrfrom_multiple = {{ .Values.arc.allow_hdrfrom_multiple }}
+    allow_username_mismatch = {{ .Values.arc.allow_username_mismatch }}
+    {{- if .Values.arc.domains }}
+    domain {
+      {{- range $domain := .Values.arc.domains }}
+        {{ $domain.name }} {
+            path = "/var/lib/rspamd/arc/{{ $domain.name }}.{{ $domain.selector }}.key";
+            selector = "{{ $domain.selector }}";
+        }
+        {{- end }}
+    }
+    {{- end }}
+{{- end }}
+
 {{- if .Values.milterHeaders }}
   milter_headers.conf: |
 {{ .Values.milterHeaders | indent 4 }}

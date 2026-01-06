@@ -139,6 +139,20 @@ milterHeaders: |
   use = ["x-spamd-bar", "x-spam-level", "authentication-results"];
   authenticated_headers = ["authentication-results"];
 
+arc:
+  enabled: "true"
+  selector: arc
+  use_domain: recipient
+  use_esld: "false"
+  sign_inbound: "true"
+  sign_local: "true"
+  sign_authenticated: "true"
+  allow_envfrom_empty: "true"
+  allow_hdrfrom_mismatch: "true"
+  allow_hdrfrom_mismatch_local: "true"
+  allow_hdrfrom_mismatch_sign_networks: "true"
+  allow_hdrfrom_multiple: "true"
+  allow_username_mismatch: "true"
 
 valkey:
   enabled: true
