@@ -3,6 +3,21 @@ entries:
   rspamd:
   - apiVersion: v2
     appVersion: 3.14.2
+    created: "2026-01-06T20:45:54.945030555Z"
+    dependencies:
+    - condition: valkey.enabled
+      name: valkey
+      repository: https://valkey.io/valkey-helm/
+      version: 0.9.2
+    description: A Helm chart for Kubernetes
+    digest: 6cf9b2528d39c8b766048902d162c7d91bd8c36f044b5d0e603fa7c9c0c5a795
+    name: rspamd
+    type: application
+    urls:
+    - https://github.com/denefoster/k8s-rspamd/releases/download/rspamd-1.0.6/rspamd-1.0.6.tgz
+    version: 1.0.6
+  - apiVersion: v2
+    appVersion: 3.14.2
     created: "2025-12-22T09:23:20.924969583Z"
     dependencies:
     - condition: valkey.enabled
@@ -31,4 +46,4 @@ entries:
     urls:
     - https://github.com/denefoster/k8s-rspamd/releases/download/rspamd-1.0.2/rspamd-1.0.2.tgz
     version: 1.0.2
-generated: "2025-12-22T09:23:20.924977668Z"
+generated: "2026-01-06T20:45:54.945047406Z"
