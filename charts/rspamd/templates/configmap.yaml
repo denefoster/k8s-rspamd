@@ -59,6 +59,7 @@ data:
     allow_hdrfrom_mismatch_sign_networks = {{ .Values.arc.allow_hdrfrom_mismatch_sign_networks }}
     allow_hdrfrom_multiple = {{ .Values.arc.allow_hdrfrom_multiple }}
     allow_username_mismatch = {{ .Values.arc.allow_username_mismatch }}
+    sign_headers = "{{ .Values.arc.sign_headers }}";
     {{- if .Values.arc.domains }}
     domain {
       {{- range $domain := .Values.arc.domains }}

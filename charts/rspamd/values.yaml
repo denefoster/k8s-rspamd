@@ -153,6 +153,7 @@ arc:
   allow_hdrfrom_mismatch_sign_networks: "true"
   allow_hdrfrom_multiple: "true"
   allow_username_mismatch: "true"
+  sign_headers: "list-unsubscribe:list-archive:list-help:list-post:list-id:precedence:to:subject:message-id:date:from:mime-version:dkim-signature"
 
 valkey:
   enabled: true
