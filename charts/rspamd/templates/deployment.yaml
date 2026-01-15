@@ -85,7 +85,7 @@ spec:
             - name: config
               mountPath: /etc/rspamd/local.d/dkim_signing.conf
               subPath: dkim_signing.conf
-          {{- if .Values.arc.enabled }}
+          {{- if .Values.rspamd.arc.enabled }}
             - name: config
               mountPath: /etc/rspamd/local.d/arc.conf
               subPath: arc.conf

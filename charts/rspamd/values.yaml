@@ -122,38 +122,39 @@ tolerations: []
 
 affinity: {}
 
-dkim:
-  allow_hdrfrom_mismatch_sign_networks: "true"
-  allow_username_mismatch: "true"
-  sign_authenticated: "true"
-  use_domain: "envelope"
-  use_esld: "false"
-  allow_hdrfrom_mismatch: "true"
-  domains:
-    - name: dene.com
-      selector: mail
-    - name: lists.sys.slush.ca
-      selector: 2020
+rspamd:
+  dkim:
+    allow_hdrfrom_mismatch_sign_networks: "true"
+    allow_username_mismatch: "true"
+    sign_authenticated: "true"
+    use_domain: "envelope"
+    use_esld: "false"
+    allow_hdrfrom_mismatch: "true"
+    domains:
+      - name: dene.com
+        selector: mail
+      - name: lists.sys.slush.ca
+        selector: 2020
 
-milterHeaders: |
-  use = ["x-spamd-bar", "x-spam-level", "authentication-results"];
-  authenticated_headers = ["authentication-results"];
+  milterHeaders: |
+    use = ["x-spamd-bar", "x-spam-level", "authentication-results"];
+    authenticated_headers = ["authentication-results"];
 
-arc:
-  enabled: "true"
-  selector: arc
-  use_domain: recipient
-  use_esld: "false"
-  sign_inbound: "true"
-  sign_local: "true"
-  sign_authenticated: "true"
-  allow_envfrom_empty: "true"
-  allow_hdrfrom_mismatch: "true"
-  allow_hdrfrom_mismatch_local: "true"
-  allow_hdrfrom_mismatch_sign_networks: "true"
-  allow_hdrfrom_multiple: "true"
-  allow_username_mismatch: "true"
-  sign_headers: "list-unsubscribe:list-archive:list-help:list-post:list-id:precedence:to:subject:message-id:date:from:mime-version:dkim-signature"
+  arc:
+    enabled: "true"
+    selector: arc
+    use_domain: recipient
+    use_esld: "false"
+    sign_inbound: "true"
+    sign_local: "true"
+    sign_authenticated: "true"
+    allow_envfrom_empty: "true"
+    allow_hdrfrom_mismatch: "true"
+    allow_hdrfrom_mismatch_local: "true"
+    allow_hdrfrom_mismatch_sign_networks: "true"
+    allow_hdrfrom_multiple: "true"
+    allow_username_mismatch: "true"
+    sign_headers: "list-unsubscribe:list-archive:list-help:list-post:list-id:precedence:to:subject:message-id:date:from:mime-version:dkim-signature"
 
 valkey:
   enabled: true
